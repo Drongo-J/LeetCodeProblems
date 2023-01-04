@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Numerics;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -24,6 +25,9 @@ namespace Leetcodes
     {
         static void Main(string[] args)
         {
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
             #region 1.Add Two Numbers
             //int[] nums = new int[] { 3, 2, 4 };
             //int target = 6;
@@ -77,9 +81,11 @@ namespace Leetcodes
             #endregion
 
             #region 5. Longest Palindromic Substring
-            Console.WriteLine(LongestPalindrome("twbiqwtafgjbtolwprpdnymaatlbuacrmzzwhkpvuwdtyfjsbsqxrlxxtqkjlpkvpxmlajdmnyepsmczmmfdtjfbyybotpoebilayqzvqztqgddpcgpelwmriwmoeeilpetbxoyktizwcqeeivzgxacuotnlzutdowiudwuqnghjgoeyojikjhlmcsrctvnahnoapmkcrqmwixpbtirkasbyajenknuccojooxfwdeflmxoueasvuovcayisflogtpxtbvcxfmydjupwihnxlpuxxcclbhvutvvshcaikuedhyuksbwwjsnssizoedjkbybwndxpkwcdxaexagazztuiuxphxcedqstahmevkwlayktrubjypzpaiwexkwbxcrqhkpqevhxbyipkmlqmmmogrnexsztsbkvebjgybrolttvnidnntpgvsawgaobycfaaviljsvyuaanguhohsepbthgjyqkicyaxkytshqmtxhilcjxdpcbmvnpippdrpggyohwyswuydyrhczlxyyzregpvxyfwpzvmjuukswcgpenygmnfwdlryobeginxwqjhxtmbpnccwdaylhvtkgjpeyydkxcqarkwvrmwbxeetmhyoudfuuwxcviabkqyhrvxbjmqcqgjjepmalyppymatylhdrazxytixtwwqqqlrcusxyxzymrnryyernrxbgrphsioxrxhmxwzsytmhnosnrpwtphaunprdtbpwapgjjqcnykgspjsxslxztfsuflijbeebwyyowjzpsbjcdabxmxhtweppffglvhfloprfavduzbgkw"));
+            Console.WriteLine($"Longest Palindrome |{LongestPalindrome("abb")}|");
             #endregion
-
+            
+            stopwatch.Stop();
+            Console.WriteLine($"Elapsed time : {stopwatch.Elapsed.TotalSeconds} seconds");
             Console.Read();
         }
 
@@ -91,45 +97,13 @@ namespace Leetcodes
             }
 
             var longestSubstring = string.Empty;
-            for (int y = 0; y < s.Length; y++)
-            {
-                for (int k = s.Length - 1 - y; k >= 0; k--)
-                {
-                    var substring = s.Substring(y,k);
-                    if (substring.Length > 0)
-                    {
-                        if (IsPalindrome(substring))
-                        {
-                            if (longestSubstring.Length > substring.Length)
-                            {
-                                longestSubstring = substring;
-                            }
-                        }
-                    }
-                }
-            }
+
             return longestSubstring;
         }
 
         public static bool IsPalindrome(string str)
         {
-            if (str == null || str.Trim() == string.Empty)
-                return false;
-
-            if (str.Length == 1)
-                return true;
-
-            str = str.Trim().ToLower();
-            int countUntilOtherLetter = str.Length - 1;
-            for (int x = 0; x < str.Length; x++)
-            {
-                if (str[x] != str[x + countUntilOtherLetter])
-                {
-                    return false;
-                }
-                countUntilOtherLetter -= 2;
-            }
-            return true;
+            return str.SequenceEqual(str.Reverse());
         }
 
         public static double FindMedianSortedArrays(int[] nums1, int[] nums2)
