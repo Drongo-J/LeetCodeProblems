@@ -74,15 +74,22 @@ namespace Leetcodes
 
             #region 5. Longest Palindromic Substring
             //Console.WriteLine($"Longest Palindrome |{Problem5.LongestPalindrome("abb")}|");
-            #endregion  
+            #endregion
 
             #region 6. Zigzag Conversion
-            var s = "PAYPALISHIRING";
-            var numRows = 4;
-            var output = Problem6.Convert(s, numRows);
+            //var s = "PAYPALISHIRING";
+            //var numRows = 4;
+            //var output = Problem6.Convert(s, numRows);
+            //Console.WriteLine($"Output: {output}");
+            //var answer = "PINALSIGYAHRPI";
+            //Console.WriteLine($"{output} == {answer} : {output == answer}"); 
+            #endregion
+
+            #region 7. Reverse Integer
+            var x = 123;
+            var output = Problem7.Reverse(x);
+            Console.WriteLine($"Input: {x}");
             Console.WriteLine($"Output: {output}");
-            var answer = "PINALSIGYAHRPI";
-            Console.WriteLine($"{output} == {answer} : {output == answer}"); 
             #endregion
 
             stopwatch.Stop();
