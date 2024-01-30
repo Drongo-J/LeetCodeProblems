@@ -13,7 +13,7 @@ using System.Xml;
 
 namespace Leetcodes
 {
-    internal class Program
+    class Program
     {
         static void Main(string[] args)
         {
@@ -86,15 +86,34 @@ namespace Leetcodes
             #endregion
 
             #region 7. Reverse Integer
-            var x = 123;
-            var output = Problem7.Reverse(x);
-            Console.WriteLine($"Input: {x}");
-            Console.WriteLine($"Output: {output}");
+            //var x = 123;
+            //var output = Problem7.Reverse(x);
+            //Console.WriteLine($"Input: {x}");
+            //Console.WriteLine($"Output: {output}");
+            #endregion
+
+            #region 8. String to Integer (atoi)
+            //var s = "00000-42a1234";
+            //var output = Problem8.MyAtoi(s);
+            //Console.WriteLine($"Output: {output}");
+            #endregion
+
+            #region 9. Palindrome Number
+            //var x = 12215;
+            //var output = Problem9.IsPalindrome(x);
+            //Console.WriteLine($"{x} is Palindrome: {output}");
+            #endregion
+
+            #region 10. Regular Expression Matching
+            var s = "aa";
+            var p = "a";
+            var output = Problem10.IsMatch(s, p);
+            Console.WriteLine($"{s} does match the entire string {p}: {output}");
             #endregion
 
             stopwatch.Stop();
-            Console.WriteLine($"Elapased time : {stopwatch.Elapsed.TotalSeconds} seconds");
+            Console.WriteLine($"Elapsed time : {stopwatch.Elapsed.TotalSeconds} seconds");
             Console.Read();
         }
-    }
+    }   
 }
